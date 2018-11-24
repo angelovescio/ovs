@@ -658,8 +658,8 @@ static int lisp_configure(struct net *net, struct net_device *dev,
 
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(2,6,39)
 static int lisp_newlink(struct net *net, struct net_device *dev,
-		struct nlattr *tb[], struct nlattr *data[])
-{
+                struct nlattr *tb[], struct nlattr *data[],
+struct netlink_ext_ack __always_unused *extack){
 #else
 /*
 static int gtp_newlink(struct net *src_net, struct net_device *dev,

@@ -2096,7 +2096,7 @@ int stt_init_module(void)
 	if (rc)
 		goto out2;
 
-	INIT_LIST_HEAD(&nf_hook_ops.list);
+	//INIT_LIST_HEAD(&nf_hook_ops.list);
 	pr_info("STT tunneling driver\n");
 	return 0;
 out2:

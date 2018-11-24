@@ -28,6 +28,8 @@
 #include "vport.h"
 #include "vport-netdev.h"
 
+#define gtp_xmit dev_queue_xmit
+
 extern struct net_device *gtp_create_flow_based_dev(struct net *net, const char *name,
 						u8 name_assign_type, u16 dst_port);
 
@@ -143,4 +145,4 @@ module_exit(ovs_gtp_tnl_exit);
 
 MODULE_DESCRIPTION("OVS: GTP switching port");
 MODULE_LICENSE("GPL");
-+MODULE_ALIAS("vport-type-6");
+MODULE_ALIAS("vport-type-6");

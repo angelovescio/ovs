@@ -1882,7 +1882,7 @@ static void stt_setup(struct net_device *dev)
 
 	dev->netdev_ops = &stt_netdev_ops;
 	dev->ethtool_ops = &stt_ethtool_ops;
-	dev->destructor = free_netdev;
+	dev->priv_destructor = free_netdev;
 
 	SET_NETDEV_DEVTYPE(dev, &stt_type);
 
@@ -1905,7 +1905,7 @@ static const struct nla_policy stt_policy[IFLA_STT_MAX + 1] = {
 	[IFLA_STT_PORT]              = { .type = NLA_U16 },
 };
 
-static int stt_validate(struct nlattr *tb[], struct nlattr *data[])
+static int stt_validate(struct nlattr *tb[], struct nlattr *data[],struct netlink_ext_ack *extack)
 {
 	if (tb[IFLA_ADDRESS]) {
 		if (nla_len(tb[IFLA_ADDRESS]) != ETH_ALEN)

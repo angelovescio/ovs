@@ -661,9 +661,18 @@ static int lisp_newlink(struct net *net, struct net_device *dev,
 		struct nlattr *tb[], struct nlattr *data[])
 {
 #else
-static int lisp_newlink(struct net_device *dev,
-		struct nlattr *tb[], struct nlattr *data[])
+/*
+static int gtp_newlink(struct net *src_net, struct net_device *dev,
+                       struct nlattr *tb[], struct nlattr *data[],
+                       struct netlink_ext_ack *extack)
 
+static int lisp_newlink(struct net *net, struct net_device *dev,
+		struct nlattr *tb[], struct nlattr *data[],
+struct netlink_ext_ack __always_unused *extack)
+*/
+static int lisp_newlink(struct net *net, struct net_device *dev,
+		struct nlattr *tb[], struct nlattr *data[],
+struct netlink_ext_ack __always_unused *extack)
 {
 	struct net *net = &init_net;
 #endif

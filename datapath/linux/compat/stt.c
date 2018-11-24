@@ -1958,7 +1958,8 @@ static int stt_configure(struct net *net, struct net_device *dev,
 }
 
 static int stt_newlink(struct net *net, struct net_device *dev,
-		struct nlattr *tb[], struct nlattr *data[])
+		struct nlattr *tb[], struct nlattr *data[],
+                       struct netlink_ext_ack *extack)
 {
 	__be16 dst_port = htons(STT_DST_PORT);
 
